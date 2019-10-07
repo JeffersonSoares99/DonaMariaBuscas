@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "681493154054",
+    "firebase_url": "https://donamariabuscas-d75dc.firebaseio.com",
+    "project_id": "donamariabuscas-d75dc",
+    "storage_bucket": "donamariabuscas-d75dc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:681493154054:android:2b31680a6177ef98adf687",
+        "android_client_info": {
+          "package_name": "com.example.donamariabuscas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "681493154054-0t3hpam1vjotohl3bl14t38gclr7tvkr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.donamariabuscas",
+            "certificate_hash": "3ec3ee7eacd914867ea630ad540635a4c8f65a11"
+          }
+        },
+        {
+          "client_id": "681493154054-ufvd93bk8huq4vnhfaauotugogcfm5dh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAotwAYNSoiD3qYwnUEaIgjVvwUwQyk_FE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "681493154054-ufvd93bk8huq4vnhfaauotugogcfm5dh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
