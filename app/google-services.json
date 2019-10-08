@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "681493154054-d5h2km9rnv517c813t16qjjidpdovq7u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.donamariabuscas",
+            "certificate_hash": "1006fef5a9dc1966c37390c9d76a8340f80dc05b"
+          }
+        },
+        {
           "client_id": "681493154054-0t3hpam1vjotohl3bl14t38gclr7tvkr.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

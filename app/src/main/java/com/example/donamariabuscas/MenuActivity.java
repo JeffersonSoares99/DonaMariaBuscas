@@ -37,7 +37,7 @@ public class MenuActivity extends AppCompatActivity {
 
 
     private int[] mImagens = new int[]{
-            R.drawable.bombom, R.drawable.fraldas, R.drawable.arroz, R.drawable.feijao
+            R.drawable.coca, R.drawable.nescau, R.drawable.papelhigi, R.drawable.frango, R.drawable.massa
 
     };
     private String[] mImagensTitle = new String[]{
