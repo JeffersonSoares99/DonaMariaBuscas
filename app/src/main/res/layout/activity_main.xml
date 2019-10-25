@@ -5,31 +5,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="50dp"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/f"
+    >
 
-    <ImageView
+<!--    <ImageView-->
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:src="@drawable/logotipo"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="2dp" />
 
 
     <Button
         android:id="@+id/register_btn"
         android:text="INSCREVA-SE"
-        android:textColor="@color/colorBlack"
-        android:layout_width="match_parent"
+        android:background="@drawable/btn_menu"
+        android:textColor="#ffff"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/login_btn"
+        android:textSize="20dp"
+        android:layout_marginRight="130dp"
         />
     <Button
         android:id="@+id/login_btn"
+        android:layout_marginTop="20dp"
         android:text="LOGIN"
+        android:background="@drawable/btn_menu"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="100dp"
-        android:textColor="@color/colorBlack"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:textColor="#ffff"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="130dp"
+        android:textSize="20dp"
+        />
 
 </RelativeLayout>

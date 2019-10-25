@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/perfil" android:title="Perfil"  android:icon="@drawable/perfil"/>
-    <item android:id="@+id/produtos" android:title="Produtos" android:icon="@drawable/produto"/>
-    <item android:id="@+id/cadastro" android:title="Cadastro" android:icon="@drawable/cadastrar" />
-    <item android:id="@+id/Sair" android:title="Sair" android:icon="@drawable/sair"/>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/home"
+            android:icon="@drawable/home"
+            android:title="Home" />
+        <item
+            android:id="@+id/produtos"
+            android:icon="@drawable/produto"
+            android:title="Produtos" />
+        <item
+            android:id="@+id/cadastro"
+            android:icon="@drawable/cadastrar"
+            android:title="Cadastro" />
+        <item
+            android:id="@+id/chat"
+            android:icon="@drawable/chat"
+            android:title="Chat" />
+        <item
+            android:id="@+id/sair"
+            android:icon="@drawable/sair"
+            android:title="Sair" />
+    </group>
 </menu>

@@ -4,24 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
-    tools:context=".LoginActivity">
+    tools:context=".LoginActivity"
+    >
 
 
-    <ImageView
-        android:layout_width="250dp"
+   <ImageView
+        android:layout_width="220dp"
         android:layout_height="250dp"
         android:src="@drawable/logotipo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp" />
 
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:textColor="@color/colorBlack"
-        android:textSize="25sp"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -33,8 +27,12 @@
             android:id="@+id/emailEt"
             android:hint="Email"
             android:inputType="textEmailAddress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/login"
+            android:layout_marginLeft="25dp"
+
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -50,31 +48,42 @@
             android:id="@+id/passwordEt"
             android:hint="Password"
             android:inputType="textPassword"
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            />
+
+        <TextView
+            android:id="@+id/recoverPassTv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Esqueceu sua senha? Clique aqui!"
+            android:layout_below="@id/loginBtn"
+            android:textColor="@color/colorBlack"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="170dp"
+            android:layout_marginBottom="10dp"
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:drawableLeft="@drawable/login"
+        android:drawableRight="@drawable/arrow_right"
         android:text="LOGIN"
-        android:textColor="@color/colorBlack"
+        android:background="@drawable/btn_login"
+        android:textColor="#ffff"
         android:layout_below="@id/passwordlTIL"
         android:id="@+id/loginBtn"
         style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
         android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-
-    <TextView
-        android:id="@+id/recoverPassTv"
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:text="Esqueceu sua senha? Clique aqui!"
-        android:layout_below="@id/loginBtn"
-        android:textColor="@color/colorBlack"/>
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginTop="30dp"
+        />
+
 
     <TextView
         android:id="@+id/nothave_accountTv"
@@ -82,11 +91,13 @@
         android:layout_height="wrap_content"
         android:text="Não possui uma conta? Inscreva-se!"
         android:textAlignment="center"
-        android:layout_below="@id/recoverPassTv"
+        android:layout_below="@id/loginBtn"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:textColor="@color/colorBlack"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="20dp"
+
+        />
 
 
 </RelativeLayout>
