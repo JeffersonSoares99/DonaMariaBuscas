@@ -8,16 +8,31 @@
     >
 
 
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#fff"
+        android:id="@+id/toolbar"
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+        app:popupTheme="@style/Theme.AppCompat.Light"
+        android:elevation="4dp"
+        />
+
+
    <ImageView
-        android:layout_width="220dp"
-        android:layout_height="250dp"
+       android:layout_below="@id/toolbar"
+        android:layout_width="200dp"
+        android:layout_height="220dp"
         android:src="@drawable/logotipo"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp" />
+       android:id="@+id/img"/>
+
 
 
 
     <com.google.android.material.textfield.TextInputLayout
+        android:layout_below="@id/img"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -62,7 +77,7 @@
             android:layout_below="@id/loginBtn"
             android:textColor="@color/colorBlack"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="170dp"
+            android:layout_marginLeft="130dp"
             android:layout_marginBottom="10dp"
             />
 
@@ -75,13 +90,12 @@
         android:textColor="#ffff"
         android:layout_below="@id/passwordlTIL"
         android:id="@+id/loginBtn"
-        style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
         android:layout_centerHorizontal="true"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
         />
 
 

@@ -14,7 +14,18 @@
         android:theme="@style/AppTheme">
         <activity android:name=".CadastroActivity"></activity>
         <activity android:name=".DetalheActivity" />
-        <activity android:name=".ProdutosActivity">
+        <activity android:name=".ProdutosActivity"  />
+
+        <activity android:name=".GridItemActivity" />
+        <activity            android:name=".MenuActivity" android:theme="@style/AppTheme.NoActionBar"  android:parentActivityName="com.example.myfirstapp.activityanterior" />
+
+
+        <activity android:name=".LoginActivity" android:theme="@style/AppTheme.NoActionBar"/>
+
+
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".RegisterActivity" android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".MainActivity" android:theme="@style/AppTheme.NoActionBar">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,16 +34,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".GridItemActivity" />
-        <activity
-            android:name=".MenuActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".LoginActivity" >
 
-        </activity>
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".MainActivity"/>
+
 
     </application>
 

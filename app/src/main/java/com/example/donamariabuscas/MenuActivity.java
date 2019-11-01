@@ -1,6 +1,7 @@
 package com.example.donamariabuscas;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -38,6 +39,13 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
+        ActionBar actionBar= getSupportActionBar();
+        actionBar.setTitle("DONA MARIA BUSCAS");
+
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(true);
+
         drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -69,7 +77,7 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new HomeFragment()).commit();
                 break;
             case R.id.produtos:
-                getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new ProdutosFragment()).commit();
+                startActivity(new Intent(MenuActivity.this, ProdutosActivity.class));
                 break;
             case R.id.cadastro:
                 getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new CadastroFragment()).commit();

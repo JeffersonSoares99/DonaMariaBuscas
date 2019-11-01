@@ -15,14 +15,13 @@
         >
 
         <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorPrimary"
-            android:id="@+id/toolbar"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
-            app:popupTheme="@style/Theme.AppCompat.Light"
+            android:background="#fff"
             android:elevation="4dp"
-            />
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+            app:popupTheme="@style/Theme.AppCompat.Light" />
 
         <FrameLayout
             android:id="@+id/frame_container"
