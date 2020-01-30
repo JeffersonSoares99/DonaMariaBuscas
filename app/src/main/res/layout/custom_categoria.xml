@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ESCOLHA A CATEGORIA QUE DESEJA CADASTRAR:"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#e91e63"
+            android:text="ALIMENTOS BÁSICO"
+            android:textColor="#ffff"
+            android:id="@+id/btn_alimentosbasico"
+            />
+
+        <Button
+            android:layout_below="@id/btn_alimentosbasico"
+            android:id="@+id/btn_carne"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#e91e63"
+            android:text="CARNE"
+            android:textColor="#ffff"
+            />
+        <Button
+            android:layout_below="@id/btn_carne"
+            android:id="@+id/btn_limpeza"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#e91e63"
+            android:text="LIMPEZA"
+            android:textColor="#ffff"
+            />
+
+        <Button
+            android:layout_below="@id/btn_limpeza"
+            android:id="@+id/btn_bebida"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#e91e63"
+            android:text="BEBIDA"
+            android:textColor="#ffff"
+            />
+
+        <Button
+            android:layout_below="@id/btn_bebida"
+            android:id="@+id/btn_bebida_alcoolica"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#e91e63"
+            android:text="BEBIDA ALCOOLICA"
+            android:textColor="#ffff"
+            />
+
+        <Button
+            android:layout_below="@id/btn_bebida_alcoolica"
+            android:id="@+id/btn_outros"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#e91e63"
+            android:text="OUTROS"
+            android:textColor="#ffff"
+            />
+
+
+
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

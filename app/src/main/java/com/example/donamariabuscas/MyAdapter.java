@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MyAdapter  extends  RecyclerView.Adapter<ProdutoViewHolder> {
@@ -26,7 +27,6 @@ public class MyAdapter  extends  RecyclerView.Adapter<ProdutoViewHolder> {
         this.myProdutoList = myProdutoList;
     }
 
-    @NonNull
     @Override
     public ProdutoViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
@@ -39,21 +39,30 @@ public class MyAdapter  extends  RecyclerView.Adapter<ProdutoViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ProdutoViewHolder produtoViewHolder, int i) {
 
-        Glide.with(mContext)
+       Glide.with(mContext)
                 .load(myProdutoList.get(i).getItemImage())
-                .into(produtoViewHolder.imageView);
+               .into(produtoViewHolder.imageView);
 
-//         produtoViewHolder.imageView.setImageResource(myProdutoList.get(i).getItemImage());
-         produtoViewHolder.mTitle.setText(myProdutoList.get(i).getItemNome());
-         produtoViewHolder.mDescricao.setText(myProdutoList.get(i).getItemDescricao());
-         produtoViewHolder.mPreco.setText(myProdutoList.get(i).getItemPreco());
+      //   produtoViewHolder.imageView.setImageResource(myProdutoList.get(i).getItemImage());
+         produtoViewHolder.mTitle.setText(myProdutoList.get(i).getItemName());
+         produtoViewHolder.mDescription.setText(myProdutoList.get(i).getItemDescription());
+         produtoViewHolder.mPrice.setText(myProdutoList.get(i).getItemPrice());
+         produtoViewHolder.mMercado.setText(myProdutoList.get(i).getItemMercado());
+         produtoViewHolder.mEndereco.setText(myProdutoList.get(i).getItemEndereco());
+
 
          produtoViewHolder.mCardView.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
                  Intent intent = new Intent(mContext, DetalheActivity.class);
                  intent.putExtra("Image",myProdutoList.get(produtoViewHolder.getAdapterPosition()).getItemImage());
-                 intent.putExtra("Descricao",myProdutoList.get(produtoViewHolder.getAdapterPosition()).getItemDescricao());
+                 intent.putExtra("Description",myProdutoList.get(produtoViewHolder.getAdapterPosition()).getItemDescription());
+                 intent.putExtra("Title",myProdutoList.get(produtoViewHolder.getAdapterPosition()).getItemName());
+                 intent.putExtra("Price",myProdutoList.get(produtoViewHolder.getAdapterPosition()).getItemPrice());
+                 intent.putExtra("Mercado",myProdutoList.get(produtoViewHolder.getAdapterPosition()).getItemMercado());
+                 intent.putExtra("Endereco",myProdutoList.get(produtoViewHolder.getAdapterPosition()).getItemEndereco());
+                 intent.putExtra("keyValue", myProdutoList.get(produtoViewHolder.getAdapterPosition()).getKey());
+
                  mContext.startActivity(intent);
 
              }
@@ -62,23 +71,33 @@ public class MyAdapter  extends  RecyclerView.Adapter<ProdutoViewHolder> {
 
     @Override
     public int getItemCount() { return myProdutoList.size(); }
+
+    public void filteredList(ArrayList<Produtos> filterList) {
+
+        myProdutoList = filterList;
+        notifyDataSetChanged();
+    }
 }
 
 class ProdutoViewHolder extends RecyclerView.ViewHolder {
 
 
     ImageView imageView;
-    TextView mTitle, mDescricao, mPreco;
+    TextView mTitle, mDescription, mPrice, mMercado, mEndereco;
     CardView mCardView;
 
 
 
     public ProdutoViewHolder(@NonNull View itemView) {
         super(itemView);
+
         imageView = itemView.findViewById(R.id.ivImage);
         mTitle = itemView.findViewById(R.id.tvTitle);
-        mDescricao = itemView.findViewById(R.id.tvDescricao);
-        mPreco = itemView.findViewById(R.id.tvPreco);
+        mDescription = itemView.findViewById(R.id.tvDescription);
+        mPrice = itemView.findViewById(R.id.tvPrice);
+        mMercado = itemView.findViewById(R.id.tvMercado);
+        mEndereco = itemView.findViewById(R.id.tvEndereco);
+
 
 
         mCardView = itemView.findViewById(R.id.myCardView);

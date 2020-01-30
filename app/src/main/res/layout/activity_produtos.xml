@@ -7,25 +7,41 @@
     tools:context=".ProdutosActivity">
 
 
-    <androidx.recyclerview.widget.RecyclerView
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/toolbarmodelo_bebidas_alcoolicas"
+        android:id="@+id/toolbar"
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+        app:popupTheme="@style/Theme.AppCompat.Light"
+        android:elevation="4dp"
+        />
+
+    <EditText
+        android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/recyclerview"
+        android:hint="Pesquisar"
+        android:textSize="13sp"
+        android:id="@+id/txt_searchtext"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:drawableEnd="@drawable/search"
+        ></EditText>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@id/txt_searchtext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/recyclerView"
         android:scrollbars="vertical"
         >
 
+
     </androidx.recyclerview.widget.RecyclerView>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_margin="40dp"
-        android:backgroundTint="@color/colorAccent"
-        android:src="@drawable/adicionar"
-        android:onClick="btn_uploadActivity"
 
-        />
 
 </RelativeLayout>

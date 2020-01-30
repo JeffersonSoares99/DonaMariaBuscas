@@ -26,61 +26,7 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
 
-        ActionBar actionBar= getSupportActionBar();
-        actionBar.setTitle("Perfil usuario");
 
-    firebaseAuth = FirebaseAuth.getInstance();
-
-    mProfileTv = findViewById(R.id.profileTv);
-
-
-    }
-
-        private void checkUserStatus (){
-
-        FirebaseUser user = firebaseAuth.getCurrentUser();
-        if (user != null) {
-        mProfileTv.setText(user.getEmail());
-
-        }
-
-        startActivity(new Intent(ProfileActivity.this, MainActivity.class));
-        finish();
-
-
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        finish();
-    }
-
-    @Override
-    protected void onStart() {
-        checkUserStatus();
-        super.onStart();
-
-
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return  super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onContextItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_logout){
-            firebaseAuth.signOut();
-            checkUserStatus();
-
-        }
-
-        return super.onContextItemSelected(item);
     }
 }
 

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CategoriaOutrosActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/toolbarmodelo_outros"
+        android:id="@+id/toolbar"
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+        app:popupTheme="@style/Theme.AppCompat.Light"
+        android:elevation="4dp"
+        />
+
+    <EditText
+        android:layout_below="@id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Pesquisar"
+        android:textSize="13sp"
+        android:id="@+id/txt_searchtext"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:drawableEnd="@drawable/search"
+        ></EditText>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@id/txt_searchtext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/recyclerView"
+        android:scrollbars="vertical"
+        >
+
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</RelativeLayout>

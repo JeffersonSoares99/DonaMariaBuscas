@@ -2,17 +2,26 @@ package com.example.donamariabuscas;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.github.rtoshiro.util.format.SimpleMaskFormatter;
+import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -23,13 +32,16 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.text.DateFormat;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Calendar;
 
-public class CadastroActivity extends AppCompatActivity {
+public class CadastroActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    ImageView receberImage;
+    ImageView recipeImage;
     Uri uri;
-    EditText txt_nome_produto, txt_descricao_produto, txt_preco_produto;
+    EditText txt_name, txt_description, txt_price, txt_mercado, txt_endereco;
+    Spinner txt_categoria;
     String imageUrl;
 
 
@@ -37,10 +49,24 @@ public class CadastroActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
-        receberImage = (ImageView) findViewById(R.id.iv_produtoImage);
-        txt_nome_produto = (EditText) findViewById(R.id.txt_nome_produto);
-        txt_descricao_produto = (EditText) findViewById(R.id.txt_descricao_produto);
-        txt_preco_produto = (EditText) findViewById(R.id.txt_preco_produto);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        ActionBar actionBar= getSupportActionBar();
+        actionBar.setTitle("");
+
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(true);
+
+
+
+        recipeImage = (ImageView) findViewById(R.id.iv_produtoImage);
+        txt_name = (EditText) findViewById(R.id.txt_recipe_name);
+        txt_description = (EditText) findViewById(R.id.text_description);
+        txt_price = (EditText) findViewById(R.id.text_price);
+        txt_mercado = (EditText) findViewById(R.id.text_mercado);
+        txt_endereco = (EditText) findViewById(R.id.text_endereco);
 
 
     }
@@ -59,15 +85,17 @@ public class CadastroActivity extends AppCompatActivity {
         if (resultCode == RESULT_OK) {
 
             uri = data.getData();
-            receberImage.setImageURI(uri);
+            recipeImage.setImageURI(uri);
 
 
-        } else Toast.makeText(this, "SELECIONE UMA IMAGEM", Toast.LENGTH_SHORT).show();
+        }
+
+        else Toast.makeText(this, "SELECIONE UMA IMAGEM", Toast.LENGTH_SHORT).show();
 
     }
 
     public void uploadImage() {
-        StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("ReceberImage").child(uri.getLastPathSegment());
+        StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("RecipeImage").child(uri.getLastPathSegment());
 
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Cadastrando...");
@@ -77,10 +105,11 @@ public class CadastroActivity extends AppCompatActivity {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                 Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
+
                 while (!uriTask.isComplete()) ;
                 Uri urlImage = uriTask.getResult();
                 imageUrl = urlImage.toString();
-                uploadImage();
+                uploadRecipe();
                 progressDialog.dismiss();
 
 
@@ -99,13 +128,19 @@ public class CadastroActivity extends AppCompatActivity {
     }
 
     public void uploadRecipe() {
+/*
+        ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Cadastrando...");
+        progressDialog.show();
 
+*/
+      Produtos produtos = new Produtos(
 
-/*      Produtos produtos = new Produtos(
-
-               txt_nome_produto.getText().toString(),
-                txt_descricao_produto.getText().toString(),
-                txt_preco_produto.getText().toString(),
+               txt_name.getText().toString(),
+                txt_description.getText().toString(),
+                txt_price.getText().toString(),
+                txt_mercado.getText().toString(),
+                txt_endereco.getText().toString(),
                 imageUrl
         );
 
@@ -118,7 +153,8 @@ public class CadastroActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
 
                     Toast.makeText(CadastroActivity.this, "Cadastro realizado", Toast.LENGTH_SHORT).show();
-
+                    Intent intent = new Intent(CadastroActivity.this, ProdutosActivity .class);
+                    startActivity(intent);
                     finish();
                 }
 
@@ -129,7 +165,19 @@ public class CadastroActivity extends AppCompatActivity {
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(CadastroActivity.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
             }
-        });*/
+        });
+
+
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String text = parent.getItemAtPosition(position).toString();
+        Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
 
     }
 }
